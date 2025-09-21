@@ -1,10 +1,11 @@
 package com.automation.base;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class DSL {
-    public static WebDriver driver;
+import io.qameta.allure.Allure;
+
+public class DSL extends BaseTest {
 
     /**
      * Types value into an element located by CSS selector.
@@ -13,7 +14,9 @@ public class DSL {
      * @param value The value to type into the element.
      */
     public static void typeByCss(String css, String value) {
-        driver.findElement(By.cssSelector(css)).sendKeys(value);
+        WebElement element = driver.findElement(By.cssSelector(css));
+        Allure.step("Type '" + value + "' into element with CSS: " + css);
+        element.sendKeys(value);
     }
 
     /**
