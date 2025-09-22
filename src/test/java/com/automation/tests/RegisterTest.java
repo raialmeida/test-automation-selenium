@@ -16,5 +16,16 @@ public class RegisterTest extends BaseTest {
     public void registerUser() {
         RegisterPage.typeFullName();
         RegisterPage.typeAdress();
+        RegisterPage.typeEmail();
+        RegisterPage.typePhone();
+        RegisterPage.typeGender();
+        RegisterPage.typeHobbies();
+        RegisterPage.typeLanguages();
+        RegisterPage.typeSkills();
+        RegisterPage.typeSelectCountry();
+        RegisterPage.typeSelectDateOfBirth();
+        RegisterPage.typePassword();
+        RegisterPage.typeConfirmPassword();
+        RegisterPage.clickButtonSubmit();
     }
 }
