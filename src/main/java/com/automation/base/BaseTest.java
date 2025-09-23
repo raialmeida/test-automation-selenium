@@ -7,6 +7,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.automation.utils.AutoScreenshotExtension;
 
@@ -18,8 +19,19 @@ public class BaseTest {
 
     @BeforeAll
     public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--start-maximized");
+
+        String headlessParam = System.getProperty("headless", System.getenv("HEADLESS"));
+        boolean headless = headlessParam != null && headlessParam.equalsIgnoreCase("true");
+        if (headless) {
+            options.addArguments("--headless=new");
+        }
+
+        driver = new ChromeDriver(options);
         driver.get("https://demo.automationtesting.in/Register.html");
     }
 

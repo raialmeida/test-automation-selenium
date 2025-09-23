@@ -1,0 +1,8 @@
+services:
+  selenium-web:
+    image: web-tests-e2e-automation-selenium
+    build: .
+    environment:
+      HEADLESS: "true"
+    volumes:
+      - ./allure-results:/app/target/allure-results

@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <java.version>${java.specification.version}</java.version>
+    <maven.compiler.release>${java.version}</maven.compiler.release>
     <aspectj.version>1.9.24</aspectj.version>
     <allure.version>2.30.0</allure.version>
     <junit.version>5.13.4</junit.version>

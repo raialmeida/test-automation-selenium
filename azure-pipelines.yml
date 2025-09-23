@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pr:
+  branches:
+    include:
+      - "*"
+
+schedules:
+  - cron: "0 10 * * 1-5"
+    displayName: "Scheduled daily"
+    branches:
+      include:
+        - master
+    always: true
+
+variables:
+  HEADLESS_MODE: true
+  DOCKER_COMPOSE_FILE: "$(Build.SourcesDirectory)/docker-compose.yml"
+
+pool:
+  name: Teste
+
+jobs:
+  - job: Build
+    displayName: "Build"
+    steps:
+      - task: DockerCompose@1
+        displayName: "Build Docker Images"
+        inputs:
+          containerregistrytype: 'Azure Container Registry'
+          action: 'Build services'
+          projectName: 'web-test-automation'
+          dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
+          
+  - job: Teste
+    dependsOn: Build
+    condition: succeeded('Build')
+    displayName: "Execução dos testes"
+    steps:
+      - task: DockerCompose@1
+        displayName: "Start Containers and Run Tests"
+        inputs:
+          containerregistrytype: 'Azure Container Registry'
+          action: Run a specific service
+          dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
+          serviceName: 'selenium-web'
+          projectName: 'web-test-automation'
+          detached: false
+          arguments: 'mvn test'
+
+      - task: PublishAllureReport@1
+        displayName: "Publish allure report"
+        condition: always()
+        inputs:
+          testResultsDir: "$(Build.SourcesDirectory)/allure-results"
+          reportName: "Report Allure"
