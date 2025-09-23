@@ -22,7 +22,7 @@ jobs:
         run: docker-compose build
 
       - name: Run tests
-        run: docker-compose run --rm selenium-web mvn test
+        run: docker-compose run --rm selenium-web mvn test -ntp
 
       - name: Load test report history
         uses: actions/checkout@v3
