@@ -1,6 +1,12 @@
 # Uma imagem base do Maven com Java
 FROM maven:3.8.7-openjdk-18-slim
 
+# Instalar dependências do Chrome e libs do sistema
+RUN apt-get update && \
+    apt-get install -y wget gnupg unzip curl \
+    fonts-liberation libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install Chrome
 RUN apt-get update && \
     apt-get install -y wget gnupg && \

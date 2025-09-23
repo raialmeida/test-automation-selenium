@@ -21,15 +21,16 @@ public class BaseTest {
     public void setup() {
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--start-maximized");
 
         String headlessParam = System.getProperty("headless", System.getenv("HEADLESS"));
         boolean headless = headlessParam != null && headlessParam.equalsIgnoreCase("true");
         if (headless) {
             options.addArguments("--headless=new");
         }
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--start-maximized");
 
         driver = new ChromeDriver(options);
         driver.get("https://demo.automationtesting.in/Register.html");
@@ -37,6 +38,8 @@ public class BaseTest {
 
     @AfterAll
     public void teardown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
