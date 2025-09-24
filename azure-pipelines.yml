@@ -27,13 +27,14 @@ jobs:
     displayName: "Build"
     steps:
       - script: |
+          rm -rf "$(Build.SourcesDirectory)/allure-results"
           mkdir -p "$(Build.SourcesDirectory)/allure-results"
           chmod -R 777 "$(Build.SourcesDirectory)/allure-results"
         displayName: "Create folder allure-results"
 
       - checkout: self
         clean: true
-        
+
       - task: DockerCompose@1
         displayName: "Build Docker Images"
         inputs:
