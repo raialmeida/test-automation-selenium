@@ -46,7 +46,7 @@ src/
   - Pode ser configurado via **Docker Compose** ou **Maven**:
 ```bash
 # Maven
-mvn test -Dheadless=false
+mvn test -Dheadless=true
 
 # Docker Compose
 environment:
