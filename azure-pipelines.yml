@@ -27,6 +27,10 @@ jobs:
   - job: Build
     displayName: "Build"
     steps:
+      - script: |
+          mkdir -p "$(Build.SourcesDirectory)/allure-results"
+        displayName: "Create folder allure-results"
+      
       - task: DockerCompose@1
         displayName: "Build Docker Images"
         inputs:
