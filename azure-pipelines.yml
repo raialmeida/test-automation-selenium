@@ -55,4 +55,5 @@ jobs:
         condition: always()
         inputs:
           testResultsDir: "$(Build.SourcesDirectory)/allure-results"
-          reportName: "Report Allure"
+          allureVersion: "2.35.1"
+          reportName: "Report Allure - Selenium"
