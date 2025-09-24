@@ -1,4 +1,4 @@
-name: Selenium Pipeline
+name: Github Pipelines
 
 on:
   push:

@@ -1,7 +1,8 @@
 # Test Automation Selenium
 Test automation with Selenium WebDriver
 
-[![Selenium Pipeline](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml/badge.svg?)](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml)
+[![Github Pipelines](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml/badge.svg?)](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml)
+[![Azure Pipelines](https://dev.azure.com/COREQA/Automation/_apis/build/status%2Fraialmeida.test-automation-selenium?branchName=master)](https://dev.azure.com/COREQA/Automation/_build/latest?definitionId=6&branchName=master)
 
 ## Visão Geral
 **`test-automation-selenium`** é um projeto de automação de testes para aplicações web usando **Java**, **Maven** e **Selenium WebDriver**, com suporte para **Docker**, **Docker Compose**, **GitHub Actions** (CI/CD) e geração de relatórios de testes via **Allure**.  
