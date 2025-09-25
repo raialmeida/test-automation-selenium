@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Sep 25 20:19:57 GMT 2025","Thu Sep 25 20:19:59 GMT 2025","1627","","com.automation.tests.RegisterTest","","com.automation.tests.RegisterTest","registerUser","Validate register successful",""
