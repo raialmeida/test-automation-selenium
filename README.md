@@ -1,34 +1,36 @@
-# Test Automation Selenium
+# Test Automation With Selenium
 Test automation with Selenium WebDriver
 
 [![Github Pipelines](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml/badge.svg?)](https://github.com/raialmeida/test-automation-selenium/actions/workflows/selenium.yml)
 [![Azure Pipelines](https://dev.azure.com/COREQA/Automation/_apis/build/status%2Fraialmeida.test-automation-selenium?branchName=master)](https://dev.azure.com/COREQA/Automation/_build/latest?definitionId=6&branchName=master)
 
-## Visão Geral
-**`test-automation-selenium`** é um projeto de automação de testes para aplicações web usando **Java**, **Maven** e **Selenium WebDriver**, com suporte para **Docker**, **Docker Compose**, **GitHub Actions** (CI/CD) e geração de relatórios de testes via **Allure**.  
+## 📌 Descrição
 
-O projeto permite rodar testes tanto em modo local quanto em containers, garantindo consistência e portabilidade.
+Este projeto é uma solução de automação de testes utilizando Java, Maven e Selenium WebDriver, configurada para rodar localmente ou em containers Docker.
+Inclui integração com Allure Reports para geração de relatórios e pipelines de CI/CD com GitHub Actions, Azure Pipelines e Jenkins.
 
-## Requisitos
+⚠️ Importante: este projeto contém apenas exemplos das principais interações com elementos comuns em plataformas web, servindo como base para criação de novas automações.
+
+## ✅ Requisitos
 
 Antes de rodar o projeto, instale:
 
 - [Java 21](https://www.oracle.com/br/java/technologies/downloads/)
 - [Maven](https://maven.apache.org/download.cgi)
-- [Docker](https://docs.docker.com/get-docker/)(Opciona)
+- [Docker](https://docs.docker.com/get-docker/)(Opcional)
 - [Docker Compose](https://docs.docker.com/compose/)(Opcional)
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 - **Java 21**
-- **Maven 3.8+**
+- **Maven 3.9+**
 - **Selenium WebDriver**
 - **Chrome / ChromeDriver**
 - **Docker / Docker Compose**
-- **GitHub Actions** (CI/CD)
+- **CI/CD: GitHub Actions | Azure Pipelines | Jenkins**
 - **Allure Report**
 
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ````
 src/
@@ -37,10 +39,10 @@ src/
  │   ├── pages       # Page Objects
  │   └── utils       # Utilitários e extensões
  │
- └── test/java/com/automation/tests   # Testes automatizados
+ └── test/java/com/automation/tests   # Classes de testes
 ````
 
-## Variáveis de Ambiente
+## 🌍 Variáveis de Ambiente
 - **HEADLESS**: controla se o navegador Chrome será executado em modo headless.  
   - Valor padrão: `false`  
   - Pode ser configurado via **Docker Compose** ou **Maven**:
@@ -50,11 +52,11 @@ mvn test -Dheadless=true
 
 # Docker Compose
 environment:
-  - HEADLESS=true
+  HEADLESS="true"
 
 ```
 
-## Executando Localmente
+## ▶️ Executando Localmente
 
 ### Compilar projeto
 
@@ -67,25 +69,25 @@ mvn compile
 mvn test
 ````
 
-## Executando Localmente com Docker
+## ▶️ Executando Localmente com Docker
 
 ### Executar testes dentro do container
 ````
 docker-compose run --rm selenium-web mvn test
 ````
 
-## Relatórios de Testes
+## 📊 Relatórios de Testes
 
 ### Gerar relatório Allure e visualizar no navegador
 
 O relatório fica salvo na pasta
-target/allure-results
+target/allure-results, execute:
 
 ````
 mvn allure:serve
 ````
 
-## Links Úteis
+## ✨ Links Úteis
 
 GitHub Actions Workflow: [Pipeline](https://github.com/raialmeida/test-automation-selenium/actions)
 
